@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                   CardHome(
                     height: 230,
                     title: 'Habilidades ',
-                    image: '../assets/images/light.png',
+                    image: 'assets/images/light.png',
                     onPressed: () {
                       habilidades(context: context);
                     },
