@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portifolio/app/helper/my_color.dart';
 
+import '../../../../helper/platform.dart';
+
 class Habilidades extends StatefulWidget {
   const Habilidades({super.key});
 
@@ -20,9 +22,17 @@ class _HabilidadesState extends State<Habilidades> {
     'C++',
     'C',
     'Python',
+    'NodeJS',
+    'Bootstrap',
+    'SQL',
+    'Git',
   ];
 
   final listBool = [
+    false,
+    false,
+    false,
+    false,
     false,
     false,
     false,
@@ -41,36 +51,58 @@ class _HabilidadesState extends State<Habilidades> {
       height: 400,
       width: 800,
       child: GridView.builder(
-          itemCount: 10,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
+          itemCount: 14,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: isMobile
+                ? 2
+                : isTablet
+                    ? 3
+                    : 4,
             childAspectRatio: 1,
           ),
           itemBuilder: ((context, index) {
             return AnimatedContainer(
               duration: const Duration(milliseconds: 200),
               padding: EdgeInsets.all(listBool[index] ? 30 : 35),
-              child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
+              child: MouseRegion(
+                onEnter: (val) {
+                  setState(() {
+                    listBool[index] = !listBool[index];
+                  });
+                },
+                onExit: (val) {
+                  setState(() {
+                    listBool[index] = !listBool[index];
+                  });
+                },
+                child: Container(
+                  clipBehavior: Clip.antiAlias,
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
                     border: Border.all(
                         color: listBool[index]
                             ? MyColor.ciano
-                            : MyColor.background)),
-                child: InkWell(
-                  onTap: () {},
-                  child: SizedBox(
-                      child: Center(
-                          child: Text(
-                    listTech[index],
-                    style: const TextStyle(color: Colors.white),
-                  ))),
-                  onHover: (val) {
-                    setState(() {
-                      listBool[index] = val;
-                    });
-                  },
+                            : MyColor.background),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        '../assets/images/${listTech[index]}.png',
+                        width: isMobile
+                            ? 45
+                            : isTablet
+                                ? 65
+                                : 80,
+                      ),
+                      Text(
+                        listTech[index],
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portifolio/app/helper/my_color.dart';
 import 'package:portifolio/app/modulos/home/view/components/card_home.dart';
 import 'package:portifolio/app/modulos/home/view/components/habilidades.dart';
@@ -63,14 +64,12 @@ class _HomePageState extends State<HomePage> {
                           border: Border(
                               left:
                                   BorderSide(color: MyColor.ciano, width: 3))),
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: Text(
                           'Letícia Alves',
-                          style: TextStyle(
-                              fontFamily: 'Ninuto',
-                              color: Colors.white,
-                              fontSize: 30),
+                          style: GoogleFonts.nunito(
+                              color: Colors.white, fontSize: 30),
                         ),
                       ),
                     ),
@@ -84,20 +83,22 @@ class _HomePageState extends State<HomePage> {
               width: 500,
               child: Wrap(
                 verticalDirection: VerticalDirection.up,
-                alignment: WrapAlignment.end,
+                alignment: WrapAlignment.center,
                 runSpacing: 12,
                 spacing: 20,
                 children: [
                   CardHome(
                     height: 230,
                     title: 'Habilidades ',
+                    image: '../assets/images/light.png',
                     onPressed: () {
                       habilidades(context: context);
                     },
                   ),
                   CardHome(
                     height: 230,
-                    title: 'Histórico ',
+                    title: 'Histórico acadêmico ',
+                    image: '../assets/images/clock.png',
                     onPressed: () {
                       habilidades(context: context);
                     },
@@ -105,6 +106,7 @@ class _HomePageState extends State<HomePage> {
                   CardHome(
                     height: 230,
                     title: 'Projetos ',
+                    image: '../assets/images/paper.png',
                     onPressed: () {
                       habilidades(context: context);
                     },
@@ -112,6 +114,7 @@ class _HomePageState extends State<HomePage> {
                   CardHome(
                     height: 230,
                     title: 'Experiências ',
+                    image: '../assets/images/board.png',
                     onPressed: () {
                       experiencias(context: context);
                     },

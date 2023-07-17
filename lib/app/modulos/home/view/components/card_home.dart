@@ -6,11 +6,13 @@ class CardHome extends StatelessWidget {
       {Key? key,
       required this.height,
       required this.title,
+      required this.image,
       required this.onPressed})
       : super(key: key);
 
   final double height;
   final String title;
+  final String image;
   final VoidCallback onPressed;
 
   @override
@@ -26,37 +28,40 @@ class CardHome extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                    onPressed: onPressed,
-                    icon: const Icon(
-                      Icons.add_circle,
-                      color: MyColor.background,
-                    )),
-              ],
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                  onPressed: onPressed,
+                  icon: const Icon(
+                    Icons.add_circle,
+                    color: MyColor.background,
+                  )),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
-                  child: Column(
-                    children: [
-                      const Icon(Icons.abc_outlined),
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          fontFamily: 'Ninuto',
-                          color: Colors.white,
-                          fontSize: 26,
-                        ),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 43,
+                      child: Image.asset(
+                        image,
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ],
+                  Text(
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    title,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
