@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portifolio/app/helper/my_color.dart';
 import 'package:portifolio/app/modulos/home/view/components/card_home.dart';
 import 'package:portifolio/app/modulos/home/view/components/habilidades.dart';
@@ -64,12 +63,11 @@ class _HomePageState extends State<HomePage> {
                           border: Border(
                               left:
                                   BorderSide(color: MyColor.ciano, width: 3))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Text(
                           'Letícia Alves',
-                          style: GoogleFonts.nunito(
-                              color: Colors.white, fontSize: 30),
+                          style: TextStyle(color: Colors.white, fontSize: 30),
                         ),
                       ),
                     ),
