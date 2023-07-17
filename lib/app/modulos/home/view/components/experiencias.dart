@@ -197,8 +197,8 @@ class _ExperienciasState extends State<Experiencias> {
                       children: [
                         Image.asset(
                           exp == 1
-                              ? '../assets/images/${listTechItep[index]}.png'
-                              : '../assets/images/${listTechMoni[index]}.png',
+                              ? 'assets/images/${listTechItep[index]}.png'
+                              : 'assets/images/${listTechMoni[index]}.png',
                           width: 43,
                         ),
                         Text(

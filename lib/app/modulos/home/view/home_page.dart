@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                   CardHome(
                     height: 230,
                     title: 'Histórico acadêmico ',
-                    image: '../assets/images/clock.png',
+                    image: 'assets/images/clock.png',
                     onPressed: () {
                       habilidades(context: context);
                     },
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                   CardHome(
                     height: 230,
                     title: 'Projetos ',
-                    image: '../assets/images/paper.png',
+                    image: 'assets/images/paper.png',
                     onPressed: () {
                       habilidades(context: context);
                     },
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                   CardHome(
                     height: 230,
                     title: 'Experiências ',
-                    image: '../assets/images/board.png',
+                    image: 'assets/images/board.png',
                     onPressed: () {
                       experiencias(context: context);
                     },
