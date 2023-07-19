@@ -7,19 +7,21 @@ class CardHome extends StatelessWidget {
       required this.height,
       required this.title,
       required this.image,
-      required this.onPressed})
+      required this.onPressed,
+      this.width})
       : super(key: key);
 
   final double height;
   final String title;
   final String image;
+  final double? width;
   final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
-      width: 200,
+      width: width ?? 200,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),

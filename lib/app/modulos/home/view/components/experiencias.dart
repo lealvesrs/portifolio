@@ -17,6 +17,8 @@ class _ExperienciasState extends State<Experiencias> {
     'JavaScript',
     'Git',
     'NodeJS',
+    'AWS',
+    'Docker',
   ];
 
   final listTechMoni = [
@@ -29,6 +31,8 @@ class _ExperienciasState extends State<Experiencias> {
   ];
 
   final listBoolItep = [
+    false,
+    false,
     false,
     false,
     false,

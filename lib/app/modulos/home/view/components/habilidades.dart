@@ -90,7 +90,8 @@ class _HabilidadesState extends State<Habilidades> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        '../assets/images/${listTech[index]}.png',
+                        'assets/images/${listTech[index]}.png',
+                        filterQuality: FilterQuality.high,
                         width: isMobile
                             ? 45
                             : isTablet
