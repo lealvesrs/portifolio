@@ -146,6 +146,7 @@ class _ExperienciasState extends State<Experiencias> {
           ),
         ),
         GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: exp == 1 ? listTechItep.length : listTechMoni.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

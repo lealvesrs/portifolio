@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                         title: 'Histórico acadêmico ',
                         image: 'assets/images/clock.png',
                         onPressed: () {
-                          habilidades(context: context);
+                          historico(context: context);
                         },
                       ),
                       CardHome(
