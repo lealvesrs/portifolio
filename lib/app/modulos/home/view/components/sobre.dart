@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:portifolio/app/helper/my_color.dart';
 import 'package:portifolio/app/modulos/home/view/components/card_sobre.dart';
+
+import '../../controller/home_controller.dart';
 
 class Sobre extends StatefulWidget {
   const Sobre({super.key});
@@ -10,6 +13,7 @@ class Sobre extends StatefulWidget {
 }
 
 class _SobreState extends State<Sobre> {
+  final controller = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
     bool isWeb = MediaQuery.of(context).size.width > 800;
@@ -25,26 +29,26 @@ class _SobreState extends State<Sobre> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       width: 450,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Letícia Alves',
                             style: TextStyle(
                                 color: MyColor.ciano,
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text(
-                            'Granduanda em Sistemas de Informações',
+                          const Text(
+                            'Graduanda em Sistemas de Informações',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Padding(
+                          const Padding(
                             padding: EdgeInsets.only(top: 8.0, right: 20),
                             child: Text(
                                 textAlign: TextAlign.justify,
@@ -53,24 +57,29 @@ class _SobreState extends State<Sobre> {
                                 ),
                                 'Técnica em Informática formada pelo IFSP, tenho 20 anos e, atualmente, curso Sistemas de Informações pela federal de Votuporanga. Sou desenvolvedora front-end e me interesso pelas áreas web e mobile, além de ser uma entusiasta na área de DataScience e Cloud.'),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(right: 50.0),
+                                padding: const EdgeInsets.only(right: 50.0),
                                 child: CardSobre(
-                                    caminho: 'assets/images/linkedin.png'),
+                                    caminho: 'assets/images/linkedin.png',
+                                    onTap: () => controller.abrirUrl(
+                                        'https://www.linkedin.com/in/leticia-deoliveira-corp/')),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(right: 50.0),
+                                padding: const EdgeInsets.only(right: 50.0),
                                 child: CardSobre(
-                                    caminho: 'assets/images/github.png'),
+                                    caminho: 'assets/images/github.png',
+                                    onTap: () => controller.abrirUrl(
+                                        'https://github.com/lealvesrs')),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(right: 50.0),
+                                padding: const EdgeInsets.only(right: 50.0),
                                 child: CardSobre(
-                                    caminho: 'assets/images/gmail.png'),
+                                    caminho: 'assets/images/gmail.png',
+                                    onTap: () => controller.abrirEmail()),
                               )
                             ],
                           )
@@ -147,12 +156,20 @@ class _SobreState extends State<Sobre> {
                           'Técnica em Informática formada pelo IFSP, tenho 20 anos e, atualmente, curso Sistemas de Informações pela federal de Votuporanga. Sou desenvolvedora front-end e me interesso pelas áreas web e mobile, além de ser uma entusiasta na área de DataScience e Cloud.'),
                     ),
                     const Spacer(),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CardSobre(caminho: 'assets/images/linkedin.png'),
-                        CardSobre(caminho: 'assets/images/github.png'),
-                        CardSobre(caminho: 'assets/images/gmail.png')
+                        CardSobre(
+                            caminho: 'assets/images/linkedin.png',
+                            onTap: () => controller.abrirUrl(
+                                'https://www.linkedin.com/in/leticia-deoliveira-corp/')),
+                        CardSobre(
+                            caminho: 'assets/images/github.png',
+                            onTap: () => controller
+                                .abrirUrl('https://github.com/lealvesrs')),
+                        CardSobre(
+                            caminho: 'assets/images/gmail.png',
+                            onTap: () => controller.abrirEmail())
                       ],
                     )
                   ],

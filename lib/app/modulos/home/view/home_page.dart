@@ -5,6 +5,7 @@ import 'package:portifolio/app/modulos/home/view/components/habilidades.dart';
 import 'package:portifolio/app/modulos/home/view/components/projetos.dart';
 
 import 'components/experiencias.dart';
+import 'components/historico.dart';
 import 'components/sobre.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,6 +44,22 @@ class _HomePageState extends State<HomePage> {
           textAlign: TextAlign.center,
         ),
         content: Experiencias(),
+      ),
+    );
+  }
+
+  Future<void> historico({required BuildContext context}) async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) => const AlertDialog(
+        insetPadding: EdgeInsets.all(10),
+        backgroundColor: MyColor.background,
+        title: Text(
+          'HISTÓRICO ACADÊMICO',
+          style: TextStyle(color: Colors.white),
+          textAlign: TextAlign.center,
+        ),
+        content: Historico(),
       ),
     );
   }
@@ -146,7 +163,7 @@ class _HomePageState extends State<HomePage> {
                                 title: 'Histórico acadêmico ',
                                 image: 'assets/images/clock.png',
                                 onPressed: () {
-                                  habilidades(context: context);
+                                  historico(context: context);
                                 },
                               ),
                               CardHome(
