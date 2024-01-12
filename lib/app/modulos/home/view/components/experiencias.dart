@@ -30,6 +30,15 @@ class _ExperienciasState extends State<Experiencias> {
     'PHP',
   ];
 
+  final listTechBv = [
+    'HTML',
+    'CSS',
+    'D3JS',
+    'JavaScript',
+    'Python',
+    'PySpark',
+  ];
+
   final listBoolItep = [
     false,
     false,
@@ -48,9 +57,19 @@ class _ExperienciasState extends State<Experiencias> {
     false,
     false,
   ];
+
+  final listBoolBv = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
+
   bool isHover = false;
 
-  var exp = 1;
+  var exp = 3;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -67,20 +86,20 @@ class _ExperienciasState extends State<Experiencias> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        exp = 1;
+                        exp = 3;
                       });
                     },
                     child: Container(
                         decoration: BoxDecoration(
                             border: Border(
                                 left: BorderSide(
-                                    color: exp == 1
+                                    color: exp == 3
                                         ? MyColor.ciano
                                         : MyColor.background,
                                     width: 4))),
                         child: const Padding(
                           padding: EdgeInsets.all(15.0),
-                          child: Text('ItepBrasil Consultoria',
+                          child: Text('Análise de dados de navegação digital',
                               style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.white,
@@ -111,7 +130,30 @@ class _ExperienciasState extends State<Experiencias> {
                                 fontWeight: FontWeight.bold),
                           ),
                         )),
-                  )
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        exp = 1;
+                      });
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                            border: Border(
+                                left: BorderSide(
+                                    color: exp == 1
+                                        ? MyColor.ciano
+                                        : MyColor.background,
+                                    width: 4))),
+                        child: const Padding(
+                          padding: EdgeInsets.all(15.0),
+                          child: Text('ItepBrasil Consultoria',
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold)),
+                        )),
+                  ),
                 ],
               ),
             )),
@@ -129,9 +171,13 @@ class _ExperienciasState extends State<Experiencias> {
             exp == 1
                 ? "Estágio - Desenvolvedora Full Stack\n"
                     "08/2022 - 02/2023"
-                : "Monitora dos alunos do Ensino Médio e da Graduação\n"
-                    "Projeto de Ensino do IFSP campus Votuporanga\n"
-                    "04/2023 - atualmente",
+                : exp == 2
+                    ? "Monitora dos alunos do Ensino Médio e da Graduação\n"
+                        "Projeto de Ensino do IFSP campus Votuporanga\n"
+                        "04/2023 - 07/2023"
+                    : "Pesquisadora na área de DataScience, utilizando de ferramentes de ciência de dados para compreender o comportamento de clientes em plataformas digitais bancárias para que instituições financeiras possam melhor planejar, por exemplo, ações de marketing e CRM\n"
+                        "\nProjeto de Pesquisa do IFSP em parceria com o Banco BV Financeira\n"
+                        "07/2023 - atualmente",
             style: const TextStyle(
               color: Colors.white,
             ),
@@ -148,7 +194,11 @@ class _ExperienciasState extends State<Experiencias> {
         GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: exp == 1 ? listTechItep.length : listTechMoni.length,
+            itemCount: exp == 1
+                ? listTechItep.length
+                : exp == 2
+                    ? listTechMoni.length
+                    : listTechBv.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: isMobile
                   ? 2
@@ -164,22 +214,30 @@ class _ExperienciasState extends State<Experiencias> {
                     ? listBoolItep[index]
                         ? 30
                         : 35
-                    : listBoolMoni[index]
-                        ? 30
-                        : 35),
+                    : exp == 2
+                        ? listBoolMoni[index]
+                            ? 30
+                            : 35
+                        : listBoolBv[index]
+                            ? 30
+                            : 35),
                 child: MouseRegion(
                   onEnter: (val) {
                     setState(() {
                       exp == 1
                           ? listBoolItep[index] = !listBoolItep[index]
-                          : listBoolMoni[index] = !listBoolMoni[index];
+                          : exp == 2
+                              ? listBoolMoni[index] = !listBoolMoni[index]
+                              : listBoolBv[index] = !listBoolBv[index];
                     });
                   },
                   onExit: (val) {
                     setState(() {
                       exp == 1
                           ? listBoolItep[index] = !listBoolItep[index]
-                          : listBoolMoni[index] = !listBoolMoni[index];
+                          : exp == 2
+                              ? listBoolMoni[index] = !listBoolMoni[index]
+                              : listBoolBv[index] = !listBoolBv[index];
                     });
                   },
                   child: Container(
@@ -192,9 +250,13 @@ class _ExperienciasState extends State<Experiencias> {
                               ? listBoolItep[index]
                                   ? MyColor.ciano
                                   : MyColor.background
-                              : listBoolMoni[index]
-                                  ? MyColor.ciano
-                                  : MyColor.background),
+                              : exp == 2
+                                  ? listBoolMoni[index]
+                                      ? MyColor.ciano
+                                      : MyColor.background
+                                  : listBoolBv[index]
+                                      ? MyColor.ciano
+                                      : MyColor.background),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Column(
@@ -203,11 +265,17 @@ class _ExperienciasState extends State<Experiencias> {
                         Image.asset(
                           exp == 1
                               ? 'assets/images/${listTechItep[index]}.png'
-                              : 'assets/images/${listTechMoni[index]}.png',
+                              : exp == 2
+                                  ? 'assets/images/${listTechMoni[index]}.png'
+                                  : 'assets/images/${listTechBv[index]}.png',
                           width: 43,
                         ),
                         Text(
-                          exp == 1 ? listTechItep[index] : listTechMoni[index],
+                          exp == 1
+                              ? listTechItep[index]
+                              : exp == 2
+                                  ? listTechMoni[index]
+                                  : listTechBv[index],
                           style: const TextStyle(color: Colors.white),
                         ),
                       ],
