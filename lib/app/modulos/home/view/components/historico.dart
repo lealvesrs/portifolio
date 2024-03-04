@@ -41,7 +41,7 @@ class _HistoricoState extends State<Historico> {
                         child: const Padding(
                           padding: EdgeInsets.all(15.0),
                           child: Text(
-                              'Ensino Médio integrado ao Técnico em Informática',
+                              'Ensino Médio integrado ao Técnico em Informática (2017 - 2019)',
                               style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.white,
@@ -65,7 +65,7 @@ class _HistoricoState extends State<Historico> {
                         child: const Padding(
                           padding: EdgeInsets.all(15.0),
                           child: Text(
-                            'Bacharelado em Sistemas de Informações',
+                            'Bacharelado em Sistemas de Informações (2022 - 2025)',
                             style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
@@ -91,7 +91,7 @@ class _HistoricoState extends State<Historico> {
                 ? "(2019) Apresentação WICM: Workshop de Iniciações Científicas e Monografias\n\n"
                     "(2019) TCC: O uso da Análise Comportamental e de tecnologias para verificar a existência de ansiedade no perfil dos alunos do Integrado IFSP"
                 : "(2023) Projeto de Ensino: Monitoria de Programação, Banco de Dados e Redes\n\n"
-                    "(2023) Roadsec 2023",
+                    "(2023 - 2024) Projeto de Pesquisa: Análise de Dados de Bases de Navegação Digital",
             style: const TextStyle(
               color: Colors.white,
             ),

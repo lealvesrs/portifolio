@@ -175,9 +175,9 @@ class _ExperienciasState extends State<Experiencias> {
                     ? "Monitora dos alunos do Ensino Médio e da Graduação\n"
                         "Projeto de Ensino do IFSP campus Votuporanga\n"
                         "04/2023 - 07/2023"
-                    : "Pesquisadora na área de DataScience, utilizando de ferramentes de ciência de dados para compreender o comportamento de clientes em plataformas digitais bancárias para que instituições financeiras possam melhor planejar, por exemplo, ações de marketing e CRM\n"
+                    : "Pesquisadora na área de DataScience, utilizando de técnias estatísticas e machine learning para compreender o comportamento de clientes em plataformas digitais bancárias para que instituições financeiras possam melhor planejar, por exemplo, ações de marketing e CRM\n"
                         "\nProjeto de Pesquisa do IFSP em parceria com o Banco BV Financeira\n"
-                        "07/2023 - atualmente",
+                        "07/2023 - 02/2024",
             style: const TextStyle(
               color: Colors.white,
             ),
