@@ -24,7 +24,7 @@ class MiniCard extends StatelessWidget {
             textAlign: TextAlign.center,
             title,
             style: const TextStyle(
-                fontSize: 12, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 11, color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ),
       ),
