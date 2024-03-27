@@ -28,22 +28,14 @@ class _HabilidadesState extends State<Habilidades> {
     'Git',
   ];
 
-  final listBool = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
+  late List<bool> listBool;
+
+  @override
+  void initState() {
+    super.initState();
+    listBool = List<bool>.generate(listTech.length, (index) => false);
+  }
+
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
