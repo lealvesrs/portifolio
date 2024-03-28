@@ -4,9 +4,17 @@ import 'package:portifolio/app/helper/platform.dart';
 import '../../../../helper/my_color.dart';
 
 class CardSobre extends StatefulWidget {
-  const CardSobre({Key? key, required this.caminho, this.title, this.onTap})
+  const CardSobre(
+      {Key? key,
+      required this.caminho,
+      this.title,
+      this.onTap,
+      this.containerSize,
+      this.imgSize})
       : super(key: key);
 
+  final double? containerSize;
+  final double? imgSize;
   final String caminho;
   final String? title;
   final VoidCallback? onTap;
@@ -36,14 +44,14 @@ class _CardSobreState extends State<CardSobre> {
             });
           },
           child: Container(
-            width: 80,
-            height: 80,
+            width: widget.containerSize ?? 80,
+            height: widget.containerSize ?? 80,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               border: Border.all(
                   color:
                       isHover || isMobile ? MyColor.ciano : MyColor.background),
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
               mainAxisAlignment: widget.title != null
@@ -55,9 +63,9 @@ class _CardSobreState extends State<CardSobre> {
                   widget.caminho,
                   filterQuality: FilterQuality.high,
                   width: isMobile
-                      ? 45
+                      ? widget.imgSize ?? 45
                       : isTablet
-                          ? 55
+                          ? widget.imgSize ?? 55
                           : 60,
                 ),
                 Visibility(

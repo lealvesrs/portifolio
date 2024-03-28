@@ -1,2 +1,11 @@
-2024/03/27-15:31:19.573 733e Creating DB /tmp/flutter_tools.ERURJS/flutter_tools_chrome_device.VQTBLM/Default/shared_proto_db since it was missing.
-2024/03/27-15:31:19.587 733e Reusing MANIFEST /tmp/flutter_tools.ERURJS/flutter_tools_chrome_device.VQTBLM/Default/shared_proto_db/MANIFEST-000001
+2024/03/27-15:33:50.067 7602 Reusing MANIFEST /tmp/flutter_tools.PKNKIS/flutter_tools_chrome_device.EIGGWO/Default/shared_proto_db/MANIFEST-000001
+2024/03/27-15:33:50.067 7602 Recovering log #3
+2024/03/27-15:33:50.067 7602 Level-0 table #3: started
+2024/03/27-15:33:50.473 7602 Level-0 table #3: 16905 bytes OK
+2024/03/27-15:33:50.474 7602 Recovering log #4
+2024/03/27-15:33:50.475 7602 Reusing old log /tmp/flutter_tools.PKNKIS/flutter_tools_chrome_device.EIGGWO/Default/shared_proto_db/000004.log 
+2024/03/27-15:33:50.542 7602 Delete type=2 #5
+2024/03/27-15:33:50.553 7602 Delete type=0 #3
+2024/03/27-15:34:04.092 75f2 Level-0 table #6: started
+2024/03/27-15:34:04.102 75f2 Level-0 table #6: 126157 bytes OK
+2024/03/27-15:34:04.111 75f2 Delete type=0 #4

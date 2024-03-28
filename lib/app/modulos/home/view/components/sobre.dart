@@ -111,7 +111,7 @@ class _SobreState extends State<Sobre> {
                 ),
               )
             : Padding(
-                padding: EdgeInsets.all(isTablet ? 30 : 15.0),
+                padding: EdgeInsets.all(isTablet ? 30 : 10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -149,25 +149,31 @@ class _SobreState extends State<Sobre> {
                           fontWeight: FontWeight.bold),
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(top: 10.0),
+                      padding: EdgeInsets.only(top: 8.0, bottom: 10),
                       child: Text(
                           textAlign: TextAlign.justify,
                           style: TextStyle(color: Colors.white, fontSize: 12),
-                          'Técnica em Informática formada pelo IFSP, tenho 20 anos e, atualmente, curso Sistemas de Informações pela federal de Votuporanga. Sou desenvolvedora front-end e me interesso pelas áreas web e mobile, além de ser uma entusiasta na área de DataScience e Cloud.'),
+                          'Técnica em Informática, tenho 21 anos e, atualmente, curso Sistemas de Informações pelo IFSP. Sou desenvolvedora front-end e me interesso pelas áreas web e mobile, além de ser uma entusiasta em Back-End, DataScience e Cloud.'),
                     ),
                     const Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CardSobre(
+                            containerSize: 60,
+                            imgSize: 30,
                             caminho: 'assets/images/linkedin.png',
                             onTap: () => controller.abrirUrl(
                                 'https://www.linkedin.com/in/leticia-deoliveira-corp/')),
                         CardSobre(
+                            containerSize: 60,
+                            imgSize: 30,
                             caminho: 'assets/images/github.png',
                             onTap: () => controller
                                 .abrirUrl('https://github.com/lealvesrs')),
                         CardSobre(
+                            containerSize: 60,
+                            imgSize: 30,
                             caminho: 'assets/images/gmail.png',
                             onTap: () => controller.abrirEmail())
                       ],
