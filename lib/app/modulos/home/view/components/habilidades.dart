@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portifolio/app/helper/my_color.dart';
+import 'package:portifolio/app/modulos/home/view/components/card_sobre.dart';
 
 import '../../../../helper/platform.dart';
 
@@ -53,50 +53,11 @@ class _HabilidadesState extends State<Habilidades> {
             childAspectRatio: 1,
           ),
           itemBuilder: ((context, index) {
-            return AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              padding: EdgeInsets.all(listBool[index] ? 30 : 35),
-              child: MouseRegion(
-                onEnter: (val) {
-                  setState(() {
-                    listBool[index] = !listBool[index];
-                  });
-                },
-                onExit: (val) {
-                  setState(() {
-                    listBool[index] = !listBool[index];
-                  });
-                },
-                child: Container(
-                  clipBehavior: Clip.antiAlias,
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                        color: listBool[index]
-                            ? MyColor.ciano
-                            : MyColor.background),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/images/${listTech[index]}.png',
-                        filterQuality: FilterQuality.high,
-                        width: isMobile
-                            ? 45
-                            : isTablet
-                                ? 65
-                                : 80,
-                      ),
-                      Text(
-                        listTech[index],
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ),
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CardSobre(
+                caminho: 'assets/images/${listTech[index]}.png',
+                title: listTech[index],
               ),
             );
           })),

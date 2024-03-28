@@ -247,14 +247,14 @@ class _ExperienciasState extends State<Experiencias> {
                     decoration: BoxDecoration(
                       border: Border.all(
                           color: exp == 1
-                              ? listBoolItep[index]
+                              ? listBoolItep[index] || isMobile
                                   ? MyColor.ciano
                                   : MyColor.background
                               : exp == 2
-                                  ? listBoolMoni[index]
+                                  ? listBoolMoni[index] || isMobile
                                       ? MyColor.ciano
                                       : MyColor.background
-                                  : listBoolBv[index]
+                                  : listBoolBv[index] || isMobile
                                       ? MyColor.ciano
                                       : MyColor.background),
                       borderRadius: BorderRadius.circular(15),

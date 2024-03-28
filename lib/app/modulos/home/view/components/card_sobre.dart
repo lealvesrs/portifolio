@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:portifolio/app/helper/platform.dart';
 
 import '../../../../helper/my_color.dart';
 
 class CardSobre extends StatefulWidget {
-  const CardSobre({Key? key, required this.caminho, required this.onTap})
+  const CardSobre({Key? key, required this.caminho, this.title, this.onTap})
       : super(key: key);
 
   final String caminho;
-  final VoidCallback onTap;
+  final String? title;
+  final VoidCallback? onTap;
 
   @override
   State<CardSobre> createState() => _CardSobreState();
@@ -20,7 +22,7 @@ class _CardSobreState extends State<CardSobre> {
     return GestureDetector(
       onTap: widget.onTap,
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 50),
+        duration: const Duration(milliseconds: 200),
         child: MouseRegion(
           cursor: MaterialStateMouseCursor.clickable,
           onEnter: (val) {
@@ -39,16 +41,31 @@ class _CardSobreState extends State<CardSobre> {
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               border: Border.all(
-                  color: isHover ? MyColor.ciano : MyColor.background),
+                  color:
+                      isHover || isMobile ? MyColor.ciano : MyColor.background),
               borderRadius: BorderRadius.circular(30),
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: widget.title != null
+                  ? MainAxisAlignment.spaceEvenly
+                  : MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
                   widget.caminho,
                   filterQuality: FilterQuality.high,
-                  width: 40,
+                  width: isMobile
+                      ? 45
+                      : isTablet
+                          ? 55
+                          : 60,
+                ),
+                Visibility(
+                  visible: widget.title != null,
+                  child: Text(
+                    widget.title ?? "",
+                    style: const TextStyle(color: Colors.white),
+                  ),
                 ),
               ],
             ),
