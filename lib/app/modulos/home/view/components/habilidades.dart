@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portifolio/app/modulos/home/view/components/card_sobre.dart';
+import 'package:portifolio/app/modulos/home/view/components/card_stacks.dart';
 
 import '../../../../helper/platform.dart';
 
@@ -29,6 +29,7 @@ class _HabilidadesState extends State<Habilidades> {
   ];
 
   late List<bool> listBool;
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -36,31 +37,36 @@ class _HabilidadesState extends State<Habilidades> {
     listBool = List<bool>.generate(listTech.length, (index) => false);
   }
 
-  bool isHover = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 400,
       width: 800,
-      child: GridView.builder(
-          itemCount: 14,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: isMobile
-                ? 2
-                : isTablet
-                    ? 3
-                    : 4,
-            childAspectRatio: 1,
-          ),
-          itemBuilder: ((context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CardSobre(
-                caminho: 'assets/images/${listTech[index]}.png',
-                title: listTech[index],
-              ),
-            );
-          })),
+      child: Scrollbar(
+        controller: _scrollController,
+        thumbVisibility: true,
+        trackVisibility: true,
+        child: GridView.builder(
+            controller: _scrollController,
+            itemCount: 14,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: isMobile
+                  ? 2
+                  : isTablet
+                      ? 3
+                      : 4,
+              childAspectRatio: 1,
+            ),
+            itemBuilder: ((context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CardStack(
+                  caminho: 'assets/images/${listTech[index]}.png',
+                  title: listTech[index],
+                ),
+              );
+            })),
+      ),
     );
   }
 }

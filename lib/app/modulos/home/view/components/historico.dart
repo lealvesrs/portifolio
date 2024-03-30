@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../../helper/my_color.dart';
+import 'package:portifolio/app/modulos/home/view/components/experiencias/containerBorder.dart';
 
 class Historico extends StatefulWidget {
   const Historico({super.key});
@@ -10,7 +9,8 @@ class Historico extends StatefulWidget {
 }
 
 class _HistoricoState extends State<Historico> {
-  var exp = 1;
+  bool facul = true;
+  bool medio = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -25,54 +25,27 @@ class _HistoricoState extends State<Historico> {
                 shrinkWrap: true,
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        exp = 1;
-                      });
-                    },
-                    child: Container(
-                        decoration: BoxDecoration(
-                            border: Border(
-                                left: BorderSide(
-                                    color: exp == 1
-                                        ? MyColor.ciano
-                                        : MyColor.background,
-                                    width: 4))),
-                        child: const Padding(
-                          padding: EdgeInsets.all(15.0),
-                          child: Text(
-                              'Ensino Médio integrado ao Técnico em Informática (2017 - 2019)',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold)),
-                        )),
-                  ),
+                      onTap: () {
+                        setState(() {
+                          facul = true;
+                          medio = false;
+                        });
+                      },
+                      child: ContainerBorder(
+                          isClicked: facul,
+                          title:
+                              "Bacharelado em Sistemas de Informações (2022 - 2025)")),
                   GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        exp = 2;
-                      });
-                    },
-                    child: Container(
-                        decoration: BoxDecoration(
-                            border: Border(
-                                left: BorderSide(
-                                    color: exp == 2
-                                        ? MyColor.ciano
-                                        : MyColor.background,
-                                    width: 4))),
-                        child: const Padding(
-                          padding: EdgeInsets.all(15.0),
-                          child: Text(
-                            'Bacharelado em Sistemas de Informações (2022 - 2025)',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        )),
-                  )
+                      onTap: () {
+                        setState(() {
+                          facul = false;
+                          medio = true;
+                        });
+                      },
+                      child: ContainerBorder(
+                          isClicked: medio,
+                          title:
+                              "Ensino Médio integrado ao Técnico em Informática (2017 - 2019)"))
                 ],
               ),
             )),
@@ -87,7 +60,7 @@ class _HistoricoState extends State<Historico> {
         Padding(
           padding: const EdgeInsets.only(top: 8.0, left: 15),
           child: Text(
-            exp == 1
+            medio
                 ? "(2019) Apresentação WICM: Workshop de Iniciações Científicas e Monografias\n\n"
                     "(2019) TCC: O uso da Análise Comportamental e de tecnologias para verificar a existência de ansiedade no perfil dos alunos do Integrado IFSP"
                 : "(2023) Projeto de Ensino: Monitoria de Programação, Banco de Dados e Redes\n\n"

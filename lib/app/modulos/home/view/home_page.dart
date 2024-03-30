@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:portifolio/app/helper/my_color.dart';
 import 'package:portifolio/app/modulos/home/view/components/card_home.dart';
 import 'package:portifolio/app/modulos/home/view/components/habilidades.dart';
-import 'package:portifolio/app/modulos/home/view/components/projetos.dart';
+import 'package:portifolio/app/modulos/home/view/components/projetos/projetos.dart';
 
-import 'components/experiencias.dart';
+import 'components/experiencias/experiencias.dart';
 import 'components/historico.dart';
-import 'components/sobre.dart';
+import 'components/sobre/sobre.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
