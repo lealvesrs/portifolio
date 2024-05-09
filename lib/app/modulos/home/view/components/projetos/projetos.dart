@@ -16,6 +16,7 @@ class _ProjetosState extends State<Projetos> {
   bool frizz = false;
   bool treino = false;
   bool landing = false;
+  bool organo = false;
   final controller = Get.put(HomeController());
   final ScrollController _scrollController = ScrollController();
 
@@ -92,6 +93,38 @@ class _ProjetosState extends State<Projetos> {
                                   desc:
                                       'Landing page com design responsivo e animações criada para um fotógrafo fictício desenvolvida para aprimorar as habilidades no uso de SCSS/Sass',
                                   stacks: const ['HTML', 'SCSS', 'JQuery'],
+                                  height: 400,
+                                  width: 350)),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => controller.abrirUrl(
+                            'https://lealvesrs.github.io/organograma_vuejs/'),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          child: MouseRegion(
+                              cursor: MaterialStateMouseCursor.clickable,
+                              onEnter: (val) {
+                                setState(() {
+                                  organo = true;
+                                });
+                              },
+                              onExit: (val) {
+                                setState(() {
+                                  organo = false;
+                                });
+                              },
+                              child: ContainerProjeto(
+                                  control: landing,
+                                  img: 'assets/gifs/organo.gif',
+                                  title: 'Organograma',
+                                  desc:
+                                      'Organograma para organização de times e colaboradores',
+                                  stacks: const [
+                                    'Vue.js 3',
+                                    'Vuetify',
+                                    'Pinia'
+                                  ],
                                   height: 400,
                                   width: 350)),
                         ),
