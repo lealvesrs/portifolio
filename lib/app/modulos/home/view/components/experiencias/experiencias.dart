@@ -68,6 +68,7 @@ class _ExperienciasState extends State<Experiencias> {
               Container(
                 color: const Color.fromARGB(255, 17, 28, 29),
                 child: ListView(
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   children: [
                     GestureDetector(
